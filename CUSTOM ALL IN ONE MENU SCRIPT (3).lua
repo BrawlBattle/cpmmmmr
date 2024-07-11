@@ -814,19 +814,38 @@ gg.toast("🥺Subscribe To STAR BOY YT🥺")
   end
 
 function B3()
-gg.toast("🥺Subscribe To STAR BOY YT🥺")
+    gg.toast("🥺Subscribe To STAR BOY YT🥺")
     gg.sleep(6000)
     gg.clearResults()
     gg.clearList()
     gg.setRanges(gg.REGION_ANONYMOUS)
-    gg.searchNumber("60", gg.TYPE_FLOAT)
-    revert = gg.getResults(13258)
-    gg.editAll("999999", gg.TYPE_FLOAT)
-    gg.clearResults()
-    gg.alert("GO TO OTHER AND CLICK LEVEL 3 PARKING")
-    gg.sleep(3000)
-    gg.toast("𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐄𝐃✔️")
-  end
+
+    -- Prompt the user to enter their current money amount
+    local input = gg.prompt({"Enter your current money amount:"}, {0}, {"number"})
+
+    -- Check if the user entered a value and did not cancel the prompt
+    if input ~= nil then
+        local currentMoney = input[1]
+        
+        -- Search for the entered money value
+        gg.searchNumber(tostring(currentMoney), gg.TYPE_FLOAT)
+
+        -- Retrieve search results
+        local results = gg.getResults(1000)
+
+        -- Edit all found values to 30,000,000
+        gg.editAll("30000000", gg.TYPE_FLOAT)
+
+        -- Clear results and provide instructions to the user
+        gg.clearResults()
+        gg.alert("GO TO OTHER AND CLICK LEVEL 3 PARKING")
+        gg.sleep(3000)
+        gg.toast("𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐄𝐃✔️")
+    else
+        gg.toast("Operation canceled")
+    end
+end
+
   
   function B4()
 gg.clearResults()
